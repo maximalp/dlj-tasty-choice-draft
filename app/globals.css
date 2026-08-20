@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --bg: #e6b75d;
+  --heading: #fdf2dd;
+  --ink: #24283b;
+  --ink-muted: rgba(36, 40, 59, 0.55);
+  --ink-faint: rgba(36, 40, 59, 0.35);
+  --surface: #fbf0d9;
+  --surface-dim: rgba(251, 240,217, 0.45);
+  --font-display: "Lexend", sans-serif;
+  --radius-pill: 20px;
+  --radius: 8px;
+  --font-scale: 1;
+}
+
+/* Desktop breakpoint: every font except the DLJ heading (which sets a
+   plain, unscaled font-size) reads this via calc() in its inline style. */
+@media (min-width: 1024px) {
+  :root {
+    --font-scale: 1.1;
+  }
+}
+
+.brand-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--heading);
+  text-align: center;
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 1;
+}
+
+.brand-tagline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-align: center;
+  margin: 0;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--heading);
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1.05;
+}
+
+.helper-text {
+  font-family: var(--font-display);
+  color: var(--ink-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 400;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+input {
+  font-family: inherit;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
