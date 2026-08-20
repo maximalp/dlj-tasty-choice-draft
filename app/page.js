@@ -407,6 +407,7 @@ function ClaimScreen({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                justifyContent: "center",
                 gap: 3,
                 padding: "12px 14px",
                 borderRadius: 8,
