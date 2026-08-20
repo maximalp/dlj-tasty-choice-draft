@@ -358,7 +358,7 @@ function ClaimScreen({
       </h2>
       <p className="helper-text" style={{ fontSize: FS(13.5), marginBottom: 22 }}>
         Type your team name, then tap an unclaimed flavor. It's yours for the
-        draft — one flavor per team.
+        draft. One flavor. One Pick.
       </p>
 
       <input
