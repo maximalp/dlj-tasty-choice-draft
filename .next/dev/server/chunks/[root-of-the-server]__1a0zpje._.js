@@ -104,14 +104,24 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$upstash$2f$redis$2f$nodejs$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@upstash/redis/nodejs.mjs [app-route] (ecmascript) <locals>");
 ;
-const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-if (!url || !token) {
-    console.warn("Redis env vars are missing. Add the Upstash for Redis integration " + "from the Vercel Storage tab, or fill in .env.local for local dev.");
+let client;
+function getClient() {
+    if (client) return client;
+    const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    if (!url || !token) {
+        console.warn("Redis env vars are missing. Add the Upstash for Redis integration " + "from the Vercel Storage tab, or fill in .env.local for local dev.");
+    }
+    client = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$upstash$2f$redis$2f$nodejs$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Redis"]({
+        url,
+        token
+    });
+    return client;
 }
-const redis = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$upstash$2f$redis$2f$nodejs$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Redis"]({
-    url,
-    token
+const redis = new Proxy({}, {
+    get (_target, prop) {
+        return getClient()[prop];
+    }
 });
 const KEYS = {
     flavors: "dlj:flavors",
