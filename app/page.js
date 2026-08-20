@@ -30,7 +30,7 @@ function Header() {
         <span style={{ color: "var(--ink)" }}>DLJ</span> 2026
       </h1>
       <p className="brand-tagline" style={{ fontSize: FS(13) }}>
-        Taste & Draft.
+        Taste & Draft
       </p>
     </div>
   );
