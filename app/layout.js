@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "DLJ — Tasty Choice Draft",
+  title: "DLJ — Taste & Draft",
   description: "A draft order tin for the league.",
 };
 
